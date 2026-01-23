@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Class Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        header { 
+            text-align: center; 
+            color: white;
+            margin-bottom: 40px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 { 
+            font-size: 3.5em; 
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        header p { 
+            font-size: 1.3em; 
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        .images { 
+            display: flex; 
+            justify-content: space-around; 
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .image-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+            transform-style: preserve-3d;
+        }
+        .image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        .image-card h3 {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        img, video { 
+            max-width: 100%; 
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            margin: 10px 0;
+        }
+        input[type="file"] { 
+            margin: 15px 0;
+            padding: 10px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+        section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h2 {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.1em;
+            color: #444;
+            line-height: 1.8;
+        }
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .contact h2 {
+            color: white;
+        }
+        .contact p {
+            color: white;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 Robotics Class</h1>
+        <p>Learn, Build, and Innovate with Advanced Robotics</p>
+    </header>
+    <section class="images">
+        <div class="image-card">
+            <h3>Arduino Board</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg" alt="Arduino Uno Board">
+        </div>
+        <div class="image-card">
+            <h3>Your Picture</h3>
+            <img src="C:\Users\AYANFE\Desktop\IMG-20250121-WA0003.jpg" alt="IMG-20250121-WA0003" id="user-pic">
+            <input type="file" accept="image/*" id="pic-upload">
+        </div>
+        <div class="image-card">
+            <h3>Upload Video</h3>
+            <video id="user-video" controls style="display: none;"></video>
+            <input type="file" accept="video/*" id="video-upload">
+        </div>
+    </section>
+    <section>
+        <h2>About the Class</h2>
+        <p>Welcome to our robotics class! Here, we explore cutting-edge robotics technology, build innovative projects, and develop problem-solving skills. This website is your hub for lessons, resources, and project showcases.</p>
+    </section>
+    <section class="contact">
+        <h2>📞 Contact Information</h2>
+        <p><strong>Instructor:</strong> Wazirex</p>
+        <p><strong>WhatsApp:</strong> 09156552063</p>
+    </section>
+    <script>
+        // Handle picture upload
+        document.getElementById('pic-upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('user-pic').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Handle video upload
+        document.getElementById('video-upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const video = document.getElementById('user-video');
+                video.src = URL.createObjectURL(file);
+                video.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
