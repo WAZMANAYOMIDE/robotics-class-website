@@ -1,0 +1,13 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore environment files
+.env
+
+# Ignore macOS system files
+.DS_Store
+
+# Other common development artifacts
+*.log
+*.tmp
+*.bak
